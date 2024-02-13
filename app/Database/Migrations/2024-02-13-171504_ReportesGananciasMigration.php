@@ -39,6 +39,6 @@ class ReportesGananciasMigration extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('reportes_ganacias');
+        $this->forge->dropTable('reportes_ganancias');
     }
 }

@@ -9,5 +9,6 @@ class Init extends Seeder
     public function run()
     {
         $this->call('RolesSeeder');
+        $this->call('AdminSeeder');
     }
 }

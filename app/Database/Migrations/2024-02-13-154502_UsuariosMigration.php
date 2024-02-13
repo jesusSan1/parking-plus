@@ -52,7 +52,7 @@ class UsuariosMigration extends Migration
                 'null' => true,
             ],
             'password' => [
-                'tpye' => 'TEXT',
+                'type' => 'TEXT',
                 'null' => false,
             ],
             'token' => [
