@@ -6,18 +6,27 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
+                        <?php if (session()->get('errors')): ?>
+                        <?=$this->include('errors/errors')?>
+                        <?php endif;?>
                         <div class="card card-plain">
                             <div class="card-header pb-0 text-start">
                                 <h4 class="font-weight-bolder">Inicio de sesión</h4>
                                 <p class="mb-0">Ingresa tu usuario y contraseña</p>
                             </div>
                             <div class="card-body">
-                                <?=form_open('', ['role' => 'form'])?>
+                                <?=form_open('', ['role' => 'form', 'class' => 'needs-validation'])?>
                                 <div class="mb-3">
-                                    <?=form_input(['type' => 'text', 'class' => 'form-control form-control-lg', 'placeholder' => 'Usuario', 'aria-label' => 'user', 'name' => 'user', 'autofocus' => true])?>
+                                    <?=form_input(['type' => 'text', 'class' => session('list.user') ? 'form-control form-control-lg is-invalid' : 'form-control form-control-lg', 'placeholder' => 'Usuario', 'aria-label' => 'user', 'name' => 'user', 'autofocus' => true, 'value' => old('user')])?>
+                                    <div id="userFeedback" class="invalid-feedback">
+                                        <?=session('list.user')?>
+                                    </div>
                                 </div>
                                 <div class="mb-3">
-                                    <?=form_input(['type' => 'password', 'class' => 'form-control form-control-lg', 'placeholder' => 'Contraseña', 'aria-label' => 'password', 'name' => 'password'])?>
+                                    <?=form_input(['type' => 'password', 'class' => session('list.password') ? 'form-control form-control-lg is-invalid' : 'form-control form-control-lg', 'placeholder' => 'Contraseña', 'aria-label' => 'password', 'name' => 'password'])?>
+                                    <div id="passwordFeedback" class="invalid-feedback">
+                                        <?=session('list.password')?>
+                                    </div>
                                 </div>
                                 <div class="text-center">
                                     <?=form_submit('', 'Iniciar sesion', ['class' => 'btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0'])?>
