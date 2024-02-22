@@ -1,67 +1,118 @@
-# CodeIgniter 4 Application Starter
+## **Parking Plus**
+![](https://img.shields.io/badge/Estatus-Desarrollo-blue)
+![](https://img.shields.io/badge/Licencia-MIT-green)
+## Tabla de contenidos
+- [**Parking Plus**](#parking-plus)
+- [Tabla de contenidos](#tabla-de-contenidos)
+- [Informacion general](#informacion-general)
+- [Pre-requisitos](#pre-requisitos)
+- [Capturas](#capturas)
+- [Tecnologías](#tecnologías)
+- [Instalación](#instalación)
+- [Colaboración](#colaboración)
+  - [¿Cómo puedes contribuir?](#cómo-puedes-contribuir)
+- [Preguntas frecuentes](#preguntas-frecuentes)
 
-## What is CodeIgniter?
+## Informacion general
+Parking Plus es una aplicación diseñada para facilitar la gestión eficiente y automatizada de estacionamientos, ofreciendo a los administradores y usuarios una experiencia intuitiva y sin problemas. El objetivo principal de este software es optimizar la gestión de estacionamientos, permitiendo a los usuarios supervisar y controlar el flujo de vehículos, brindar a los usuarios un medio conveniente para acceder y utilizar los servicios de estacionamiento.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Pre-requisitos
+Es necesario contar con ciertos requisitos para poder utilizar el sistema  
+* PHP 8.1.6
+* Composer
+* Apache
+* MySql
+* Extensión PHP intl
+* Extensión PHP mbstring
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Capturas
+![Logo](./public/assets/img/icon.jpg)
+![Login](./public/assets/img/login.jpeg)
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Tecnologías
+lista de tecnologias usadas en el proyecto:
+* [CodeIgniter](https://codeigniter.com/): Version 4.4.5
+* [PHP](https://www.php.net/releases/8_1_6.php): Version 8.1.6
+* [Bootstrap](https://getbootstrap.com/): Version 5.0.2
+* [Javascript](https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps/What_is_JavaScript)
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+## Instalación
+Introducción a cerca de la instalación. 
+```
+$ git clone https://github.com/jesusSan1/parking-plus
+$ cd ../path/to/the/file
+$ composer install
+$ cp env .env
+$ php spark migrate
+$ php spark db:seed 
+$ php spark serve
+```
+Información adicional:  
+para usar la aplicación en un entorno de ```desarrollo```, debe modificar el archivo ```.env``` para comenzar. Escribir lo siguiente:  
+  
+```
+CI_ENVIRONMENT = development
 
-## Installation & updates
+app.baseURL = 'http://localhost:8080/'
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+database.default.hostname = localhost
+database.default.database = parkingplus
+database.default.username = tu_usuario
+database.default.password = tu_contraseña
+database.default.DBDriver = MySQLi
+database.default.DBPrefix =
+database.default.port = 3306
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+//Utilizar esta configuración en caso de querer utilizar un servidor SMTP para enviar emails
+email.userAgent = 'CodeIgniter'
+email.protocol = 'smtp'
+email.mailPath = '/usr/sbin/sendmail'
+email.SMTPHost = 'Tu_host'
+email.SMTPUser = 'Tu_usuario'
+email.SMTPPass = 'tu_contraseña'
+email.SMTPPort = 'Tu_puerto'
+email.SMTPTimeout = 15
+email.SMTPKeepAlive = false
+email.SMTPCrypto = 'tu_encriptación'
+email.wordWrap = true
+email.wrapChars = 76
+email.mailType = 'html'
+email.charset = 'UTF-8'
+email.validate = false
+email.priority = 3
+email.CRLF = "\r\n"
+email.newline = "\r\n"
+email.BCCBatchMode = false
+email.BCCBatchSize = 200
+email.DSN = false
+```
 
-## Setup
+## Colaboración
+Estamos emocionados de que estés considerando contribuir.
+En este proyecto, creemos que la colaboración libre y abierta es fundamental para impulsar el progreso y la innovación. Todos los aportes, grandes o pequeños, son bienvenidos y valorados.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### ¿Cómo puedes contribuir?
+1. **Desarrollo de código**: Si eres un desarrollador, puedes contribuir escribiendo código, mejorando características existentes, corrigiendo errores y proponiendo nuevas ideas.
 
-## Important Change with index.php
+2. **Pruebas**: Las pruebas son fundamentales para garantizar la estabilidad y la calidad del software. Puedes ayudar realizando pruebas exhaustivas y reportando problemas que encuentres.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+3. **Documentación**: La documentación clara y concisa es esencial para que otros desarrolladores comprendan y utilicen nuestro software. Si tienes habilidades en escritura técnica, ¡tu ayuda será muy apreciada!
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+4. **Reporte de problemas**: Si encuentras algún error o tienes una idea para mejorar el software, por favor, abre un problema en nuestro repositorio. Tu retroalimentación es invaluable.
 
-**Please** read the user guide for a better explanation of how CI4 works!
+> La verdadera colaboración no se trata de sentir que todos están en el mismo barco, sino de reconocer que todos estamos en la misma tormenta.  
 
-## Repository Management
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+## Preguntas frecuentes
+Una lista de preguntas frecuentes
+1. **¿Cómo puedo instalar el software en mi sistema?**  
+_Para instalar el software, simplemente sigue las instrucciones detalladas en nuestro archivo README.md en el repositorio del proyecto en GitHub._
+2. __¿El software es gratuito?__  
+Sí, Parking Plus es de código abierto y se distribuye bajo la licencia MIT. Puedes descargarlo, usarlo y modificarlo de acuerdo con los términos de la licencia.
+3. **¿El software es compatible con dispositivos móviles?**  
+*Sí, Parking Plus es compatible con dispositivos móviles que admiten navegadores web modernos.*.
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> **Warning**
-> The end of life date for PHP 7.4 was November 28, 2022. If you are
-> still using PHP 7.4, you should upgrade immediately. The end of life date
-> for PHP 8.0 will be November 26, 2023.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+| Pregunta                                                                   | Respuesta                                                                                                                              |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------
+| ¿Cuál es el lenguaje de programación principal utilizado en el desarrollo? | Parking Plus está principalmente desarrollado en PHP.
+| ¿El software incluye funcionalidades de seguridad?                         | Sí, la seguridad es una prioridad. Parking Plus incluye funciones de seguridad para proteger los datos y la privacidad de los usuarios. |
