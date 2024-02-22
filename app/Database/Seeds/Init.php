@@ -10,5 +10,6 @@ class Init extends Seeder
     {
         $this->call('RolesSeeder');
         $this->call('AdminSeeder');
+        $this->call('GerenteSeeder');
     }
 }
