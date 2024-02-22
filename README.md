@@ -87,6 +87,15 @@ email.BCCBatchSize = 200
 email.DSN = false
 ```
 
+Información adicional:  
+Para ingresar al sistema, existen dos usuarios, admin y test.  
+* usuario admin:  
+  * usuario: admin
+  * contraseña: Admin123!
+* Usuario gerente test:
+  * usuario: test
+  * contraseña: Test123!  
+  
 ## Colaboración
 Estamos emocionados de que estés considerando contribuir.
 En este proyecto, creemos que la colaboración libre y abierta es fundamental para impulsar el progreso y la innovación. Todos los aportes, grandes o pequeños, son bienvenidos y valorados.
