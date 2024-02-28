@@ -16,11 +16,13 @@ $routes->post('/', [Home::class, 'index']);
 $routes->get('recuperar', [Recuperar::class, 'index']);
 $routes->post('recuperar', [Recuperar::class, 'index']);
 
-$routes->get('verificar', [Verificar::class, 'index'], ['filter' => 'token']);
-$routes->post('verificar', [Verificar::class, 'index'], ['filter' => 'token']);
+$routes->group('', ['filter' => 'token'], static function ($routes) {
+    $routes->get('verificar', [Verificar::class, 'index']);
+    $routes->post('verificar', [Verificar::class, 'index']);
 
-$routes->get('reestablecer', [Reestablecer::class, 'index'], ['filter' => 'token']);
-$routes->post('reestablecer', [Reestablecer::class, 'index'], ['filter' => 'token']);
+    $routes->get('reestablecer', [Reestablecer::class, 'index']);
+    $routes->post('reestablecer', [Reestablecer::class, 'index']);
+});
 
 $routes->get('dashboard', [Dashboard::class, 'index'], ['filter' => 'auth']);
 $routes->get('salir', [Dashboard::class, 'salir']);
