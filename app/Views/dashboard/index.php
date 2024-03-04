@@ -3,6 +3,158 @@
 Menú principal
 <?=$this->endSection();?>
 <?=$this->section('contenido');?>
+<?php if (session('id_rol') == 1): ?>
+<?=link_tag('assets/css/check.css')?>
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12 text-end">
+            <button type="button" class="btn bg-gradient-success active btn-sm" aria-pressed="true">
+                Agregar usuario
+            </button>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Usuarios</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Datos</th>
+                                    <th
+                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        Tipo de usuario</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Estatus</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Fecha de registro</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Fecha de proximo pago</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Aceso al sistema</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($gerentes as $gerente): ?>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <?=img(['src' => 'assets/img/team-2.jpg', 'class' => 'avatar avatar-sm me-3', 'foto del usuario'])?>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm"><?=$gerente['nombre']?></h6>
+                                                <p class="text-xs text-secondary mb-0"><?=$gerente['email']?></p>
+                                                <p class="text-xs text-secondary mb-0"><?=$gerente['telefono']?></p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Gerente</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span
+                                            class="badge badge-sm <?=$gerente['habilitado'] == true ? 'bg-gradient-success' : 'bg-gradient-danger'?>">
+                                            <?=$gerente['habilitado'] == true ? 'activo' : 'Inactivo'?>
+                                        </span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span
+                                            class="text-secondary text-xs font-weight-bold"><?=$gerente['fecha_registro']?></span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span
+                                            class="text-secondary text-xs font-weight-bold"><?=$gerente['fecha_proximo_pago']?></span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <?php if ($gerente['habilitado'] == true): ?>
+                                        <input type="checkbox" name="acceso" checked>
+                                        <?php else: ?>
+                                        <input type="checkbox" name="acceso">
+                                        <?php endif;?>
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3"
+                                                    alt="user1">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">John Michael</h6>
+                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                                                <p class="text-xs text-secondary mb-0">2311196675</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Gerente</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success">Activo</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">23/04/24</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <input type="checkbox" name="acceso" checked>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="../assets/img/team-3.jpg" class="avatar avatar-sm me-3"
+                                                    alt="user2">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
+                                                <p class="text-xs text-secondary mb-0">2201028165</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Gerente</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-danger">Inactivo</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">11/05/24</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <input type="checkbox" name="acceso" id="">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif;?>
+<?php if (session('id_rol') == 2): ?>
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -474,4 +626,5 @@ Menú principal
         },
     });
     </script>
+    <?php endif;?>
     <?=$this->endSection();?>
