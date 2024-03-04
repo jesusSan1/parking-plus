@@ -28,3 +28,4 @@ $routes->group('', ['filter' => 'token'], static function ($routes) {
 $routes->get('dashboard', [Dashboard::class, 'index'], ['filter' => 'auth']);
 $routes->get('salir', [Dashboard::class, 'salir']);
 $routes->get('crear-usuarios', [Usuarios::class, 'index'], ['flter' => 'auth']);
+$routes->post('crear-usuarios', [Usuarios::class, 'index'], ['flter' => 'auth']);

@@ -20,37 +20,55 @@ Crear usuarios gerentes
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Usuario', 'user', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'user', 'id' => 'user', 'class' => 'form-control', 'value' => old('user')])?>
+                                <?=form_input(['type' => 'text', 'name' => 'user', 'id' => 'user', 'class' => session('list.user') ? 'form-control is-invalid' : 'form-control', 'value' => old('user')])?>
+                                <div class="invalid-feedback">
+                                    <?=session('list.user')?>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Correo electronico', 'email', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'email', 'name' => 'email', 'id' => 'email', 'class' => 'form-control', 'value' => old('email')])?>
+                                <?=form_input(['type' => 'email', 'name' => 'email', 'id' => 'email', 'class' => session('list.email') ? 'form-control is-invalid' : 'form-control', 'value' => old('email')])?>
+                                <div class="invalid-feedback">
+                                    <?=session('list.email')?>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Nombre', 'name', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'name', 'id' => 'name', 'class' => 'form-control', 'value' => old('name')])?>
+                                <?=form_input(['type' => 'text', 'name' => 'name', 'id' => 'name', 'class' => session('list.name') ? 'form-control is-invalid' : 'form-control', 'value' => old('name')])?>
+                                <div class="invalid-feedback">
+                                    <?=session('list.name')?>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Apellido paterno', 'apepat', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'apepat', 'id' => 'apepat', 'class' => 'form-control', 'value' => old('apepat')])?>
+                                <?=form_input(['type' => 'text', 'name' => 'apepat', 'id' => 'apepat', 'class' => session('list.apepat') ? 'form-control is-invalid' : 'form-control', 'value' => old('apepat')])?>
+                                <div class="invalid-feedback">
+                                    <?=session('list.apepat')?>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Apellido materno', 'apemat', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'apemat', 'id' => 'apemat', 'class' => 'form-control', 'value' => old('apemat')])?>
+                                <?=form_input(['type' => 'text', 'name' => 'apemat', 'id' => 'apemat', 'class' => session('list.apemat') ? 'form-control is-invalid' : 'form-control', 'value' => old('apemat')])?>
+                                <div class="invalid-feedback">
+                                    <?=session('list.apemat')?>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Contraseña', 'password', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'password', 'name' => 'password', 'id' => 'password', 'class' => 'form-control'])?>
+                                <?=form_input(['type' => 'password', 'name' => 'password', 'id' => 'password', 'class' => session('list.password') ? 'form-control is-invalid' : 'form-control'])?>
+                                <div class="invalid-feedback">
+                                    <?=session('list.password')?>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -60,13 +78,19 @@ Crear usuarios gerentes
                         <div class="col-md-12">
                             <div class="form-group">
                                 <?=form_label('Dirección', 'address', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'address', 'id' => 'address', 'class' => 'form-control', 'value' => old('address')])?>
+                                <?=form_input(['type' => 'text', 'name' => 'address', 'id' => 'address', 'class' => session('list.address') ? 'form-control is-invalid' : 'form-control', 'value' => old('address')])?>
+                                <div class="invalid-feedback">
+                                    <?=session('list.address')?>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <?=form_label('Telefono', 'phone', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'tel', 'name' => 'phone', 'id' => 'phone', 'class' => 'form-control', 'value' => old('phone')])?>
+                                <?=form_input(['type' => 'tel', 'name' => 'phone', 'id' => 'phone', 'class' => session('list.phone') ? 'form-control is-invalid' : 'form-control', 'value' => old('phone')])?>
+                                <div class="invalid-feedback">
+                                    <?=session('list.phone')?>
+                                </div>
                             </div>
                         </div>
                     </div>
