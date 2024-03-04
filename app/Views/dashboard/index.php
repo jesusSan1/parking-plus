@@ -8,10 +8,7 @@ Menú principal
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-12 text-end">
-            <button type="button" class="btn bg-gradient-success active btn-sm" aria-pressed="true">
-                Agregar usuario
-            </button>
-
+            <?=anchor(base_url('crear-usuarios'), 'Agregar usuario', ['class' => 'btn bg-gradient-success active btn-sm', 'aria-pressed' => true])?>
         </div>
     </div>
     <div class="row">
