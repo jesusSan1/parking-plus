@@ -13,6 +13,9 @@ Crear usuarios gerentes
                         <?=anchor(base_url('dashboard'), 'Regresar', ['class' => 'btn btn-secondary btn-sm ms-auto'])?>
                         <?=form_submit('guardar', 'Guardar', ['class' => 'btn btn-primary btn-sm ms-3'])?>
                     </div>
+                    <?php if (session('success')): ?>
+                    <?=$this->include('errors\success')?>
+                    <?php endif;?>
                 </div>
                 <div class="card-body">
                     <p class="text-uppercase text-sm">Información del usuario</p>

@@ -9,10 +9,12 @@ use CodeIgniter\HTTP\ResponseInterface;
 class Usuarios extends BaseController
 {
     protected $usuarios;
+    protected $security;
 
     public function __construct()
     {
         $this->usuarios = model(UsuarioModel::class);
+        $this->security = \Config\Services::security();
     }
     public function index()
     {
@@ -89,6 +91,23 @@ class Usuarios extends BaseController
             if (!$this->validate($rules)) {
                 return redirect()->back()->with('list', $this->validation->getErrors())->withInput();
             }
+            $data = [
+                'usuario' => $this->security->sanitizeFilename(trim($this->request->getPost('user'))),
+                'email' => $this->security->sanitizeFilename(trim($this->request->getPost('email'))),
+                'nombre' => $this->security->sanitizeFilename(trim($this->request->getPost('name'))),
+                'apepat' => $this->security->sanitizeFilename(trim($this->request->getPost('apepat'))),
+                'apemat' => $this->security->sanitizeFilename(trim($this->request->getPost('apemat'))),
+                'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+                'direccion' => $this->security->sanitizeFilename(trim($this->request->getPost('address'))),
+                'telefono' => $this->security->sanitizeFilename(trim($this->request->getPost('phone'))),
+                'habilitado' => true,
+                'fecha_registro' => date('Y-m-d'),
+                'usuario_pagado' => true,
+                'fecha_proximo_pago' => date("Y-m-d", strtotime(date('Y-m-d') . "+ 1 month")),
+                'id_rol' => 2,
+            ];
+            $this->usuarios->insert($data);
+            return redirect()->back()->with('success', 'Datos guardados correctamente');
         }
         return view('usuarios/index');
     }
