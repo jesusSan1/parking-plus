@@ -111,4 +111,11 @@ class Usuarios extends BaseController
         }
         return view('usuarios/index');
     }
+
+    public function habilitar()
+    {
+        $id = $this->request->getPost('id');
+        $habilitado = $this->request->getPost('habilitado');
+        $this->usuarios->where('id', $id)->set(['habilitado' => $habilitado])->update();
+    }
 }
