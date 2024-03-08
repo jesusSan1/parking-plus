@@ -25,8 +25,14 @@ $routes->group('', ['filter' => 'token'], static function ($routes) {
     $routes->post('reestablecer', [Reestablecer::class, 'index']);
 });
 
-$routes->get('dashboard', [Dashboard::class, 'index'], ['filter' => 'auth']);
-$routes->get('salir', [Dashboard::class, 'salir']);
-$routes->get('crear-usuarios', [Usuarios::class, 'index'], ['filter' => 'auth']);
-$routes->post('crear-usuarios', [Usuarios::class, 'index'], ['filter' => 'auth']);
-$routes->post('habilitar', [Usuarios::class, 'habilitar'], ['filter' => 'auth']);
+$routes->group('', ['filter' => 'auth'], static function ($routes) {
+    $routes->get('dashboard', [Dashboard::class, 'index']);
+    $routes->get('salir', [Dashboard::class, 'salir']);
+
+    $routes->group('', ['filter' => 'admin'], static function ($routes) {
+        $routes->get('crear-usuarios', [Usuarios::class, 'index']);
+        $routes->post('crear-usuarios', [Usuarios::class, 'index']);
+        $routes->post('habilitar', [Usuarios::class, 'habilitar']);
+    });
+
+});
