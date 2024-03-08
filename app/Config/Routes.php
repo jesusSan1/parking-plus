@@ -4,6 +4,7 @@ use App\Controllers\Dashboard;
 use App\Controllers\Home;
 use App\Controllers\Recuperar;
 use App\Controllers\Reestablecer;
+use App\Controllers\Usuarios;
 use App\Controllers\Verificar;
 use CodeIgniter\Router\RouteCollection;
 
@@ -26,3 +27,6 @@ $routes->group('', ['filter' => 'token'], static function ($routes) {
 
 $routes->get('dashboard', [Dashboard::class, 'index'], ['filter' => 'auth']);
 $routes->get('salir', [Dashboard::class, 'salir']);
+$routes->get('crear-usuarios', [Usuarios::class, 'index'], ['filter' => 'auth']);
+$routes->post('crear-usuarios', [Usuarios::class, 'index'], ['filter' => 'auth']);
+$routes->post('habilitar', [Usuarios::class, 'habilitar'], ['filter' => 'auth']);
