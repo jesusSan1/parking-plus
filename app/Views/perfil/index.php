@@ -4,6 +4,7 @@ Perfil de usuario
 <?=$this->endSection();?>
 <?=$this->section('contenido');?>
 <div class="container-fluid py-4">
+    <?php foreach ($datos as $perfil): ?>
     <div class="row">
         <div class="col-md-8">
             <div class="card">
@@ -11,7 +12,7 @@ Perfil de usuario
                 <div class="card-header pb-0">
                     <div class="d-flex align-items-center">
                         <?=anchor(base_url('dashboard'), 'Regresar', ['class' => 'btn btn-secondary btn-sm ms-auto'])?>
-                        <?=form_submit('guardar', 'Guardar', ['class' => 'btn btn-primary btn-sm ms-3'])?>
+                        <?=form_submit('guardar', 'Editar', ['class' => 'btn btn-info btn-sm ms-3'])?>
                     </div>
                     <?php if (session('success')): ?>
                     <?=$this->include('errors\success')?>
@@ -23,7 +24,7 @@ Perfil de usuario
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Usuario', 'user', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'user', 'id' => 'user', 'class' => session('list.user') ? 'form-control is-invalid' : 'form-control', 'value' => old('user')])?>
+                                <?=form_input(['type' => 'text', 'name' => 'user', 'id' => 'user', 'class' => session('list.user') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('name', $perfil['usuario'])])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.user')?>
                                 </div>
@@ -32,7 +33,7 @@ Perfil de usuario
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Correo electronico', 'email', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'email', 'name' => 'email', 'id' => 'email', 'class' => session('list.email') ? 'form-control is-invalid' : 'form-control', 'value' => old('email')])?>
+                                <?=form_input(['type' => 'email', 'name' => 'email', 'id' => 'email', 'class' => session('list.email') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('email', $perfil['email'])])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.email')?>
                                 </div>
@@ -41,7 +42,7 @@ Perfil de usuario
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Nombre', 'name', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'name', 'id' => 'name', 'class' => session('list.name') ? 'form-control is-invalid' : 'form-control', 'value' => old('name')])?>
+                                <?=form_input(['type' => 'text', 'name' => 'name', 'id' => 'name', 'class' => session('list.name') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('name', $perfil['nombre'])])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.name')?>
                                 </div>
@@ -50,7 +51,7 @@ Perfil de usuario
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Apellido paterno', 'apepat', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'apepat', 'id' => 'apepat', 'class' => session('list.apepat') ? 'form-control is-invalid' : 'form-control', 'value' => old('apepat')])?>
+                                <?=form_input(['type' => 'text', 'name' => 'apepat', 'id' => 'apepat', 'class' => session('list.apepat') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('apepat', $perfil['apepat'])])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.apepat')?>
                                 </div>
@@ -59,7 +60,7 @@ Perfil de usuario
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Apellido materno', 'apemat', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'apemat', 'id' => 'apemat', 'class' => session('list.apemat') ? 'form-control is-invalid' : 'form-control', 'value' => old('apemat')])?>
+                                <?=form_input(['type' => 'text', 'name' => 'apemat', 'id' => 'apemat', 'class' => session('list.apemat') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('apemat', $perfil['apemat'])])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.apemat')?>
                                 </div>
@@ -81,7 +82,7 @@ Perfil de usuario
                         <div class="col-md-12">
                             <div class="form-group">
                                 <?=form_label('Dirección', 'address', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'address', 'id' => 'address', 'class' => session('list.address') ? 'form-control is-invalid' : 'form-control', 'value' => old('address')])?>
+                                <?=form_input(['type' => 'text', 'name' => 'address', 'id' => 'address', 'class' => session('list.address') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('address', $perfil['direccion'])])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.address')?>
                                 </div>
@@ -90,7 +91,7 @@ Perfil de usuario
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Telefono', 'phone', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'tel', 'name' => 'phone', 'id' => 'phone', 'class' => session('list.phone') ? 'form-control is-invalid' : 'form-control', 'value' => old('phone')])?>
+                                <?=form_input(['type' => 'tel', 'name' => 'phone', 'id' => 'phone', 'class' => session('list.phone') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('phone', $perfil['telefono'])])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.phone')?>
                                 </div>
@@ -128,18 +129,20 @@ Perfil de usuario
                 <div class="card-body pt-0">
                     <div class="text-center mt-4">
                         <h5>
-                            nombre de usuario
+                            <?=$perfil['usuario']?>
                         </h5>
                         <div class="h6 font-weight-300">
-                            <i class="ni location_pin mr-2"></i>jjsanru3@gmail.com
+                            <i class="ni location_pin mr-2"></i><?=$perfil['email']?>
                         </div>
                         <div class="h6 mt-4">
-                            <i class="ni business_briefcase-24 mr-2"></i>Nombre completo
+                            <i class="ni business_briefcase-24 mr-2"></i>
+                            <?=$perfil['nombre'] . ' ' . $perfil['apepat'] . ' ' . $perfil['apemat']?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <?php endforeach;?>
 </div>
 <?=$this->endSection();?>
