@@ -2,6 +2,7 @@
 
 use App\Controllers\Dashboard;
 use App\Controllers\Home;
+use App\Controllers\Perfil;
 use App\Controllers\Recuperar;
 use App\Controllers\Reestablecer;
 use App\Controllers\Usuarios;
@@ -28,6 +29,9 @@ $routes->group('', ['filter' => 'token'], static function ($routes) {
 $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('dashboard', [Dashboard::class, 'index']);
     $routes->get('salir', [Dashboard::class, 'salir']);
+
+    $routes->get('perfil', [Perfil::class, 'index'], ['filter' => 'gerente']);
+    $routes->post('perfil', [Perfil::class, 'index'], ['filter' => 'gerente']);
 
     $routes->group('', ['filter' => 'admin'], static function ($routes) {
         $routes->get('crear-usuarios', [Usuarios::class, 'index']);
