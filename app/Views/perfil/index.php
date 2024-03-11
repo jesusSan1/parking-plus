@@ -55,7 +55,7 @@ Perfil de usuario
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?=form_label('Usuario', 'user', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'user', 'id' => 'user', 'class' => session('list.user') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('name', $perfil['usuario'])])?>
+                                <?=form_input(['type' => 'text', 'name' => 'user', 'id' => 'user', 'class' => session('list.user') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('user', $perfil['usuario'])])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.user')?>
                                 </div>
@@ -125,15 +125,6 @@ Perfil de usuario
                                 <?=form_input(['type' => 'tel', 'name' => 'phone', 'id' => 'phone', 'class' => session('list.phone') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('phone', $perfil['telefono'])])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.phone')?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <?=form_label('Foto de perfil', 'profile', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'file', 'name' => 'profile', 'id' => 'profile', 'class' => session('list.profile') ? 'form-control is-invalid' : 'form-control', 'value' => old('profile')])?>
-                                <div class="invalid-feedback">
-                                    <?=session('list.profile')?>
                                 </div>
                             </div>
                         </div>
