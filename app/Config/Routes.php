@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\Configuracion;
 use App\Controllers\Dashboard;
 use App\Controllers\Home;
 use App\Controllers\Perfil;
@@ -32,6 +33,8 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
 
     $routes->get('perfil', [Perfil::class, 'index'], ['filter' => 'gerente']);
     $routes->post('perfil', [Perfil::class, 'index'], ['filter' => 'gerente']);
+    $routes->get('configuracion', [Configuracion::class, 'index'], ['filter' => 'gerente']);
+    $routes->post('configuracion', [Configuracion::class, 'index'], ['filter' => 'gerente']);
 
     $routes->group('', ['filter' => 'admin'], static function ($routes) {
         $routes->get('crear-usuarios', [Usuarios::class, 'index']);
