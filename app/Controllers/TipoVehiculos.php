@@ -45,4 +45,8 @@ class TipoVehiculos extends BaseController
             'tipoVehiculos' => $this->tipoVehiculos->where('id_usuario', session('id'))->findAll(),
         ]);
     }
+    public function eliminar (int $id){
+        $this->tipoVehiculos->where('id', $id)->delete();
+        return redirect()->back()->with('success', 'Tipo de vehiculo eliminado correctamente');
+    }
 }

@@ -38,6 +38,7 @@ $routes->group('', ['filter' => 'auth'], static function($routes) {
     $routes->post('configuracion', [Configuracion::class, 'index'], ['filter' => 'gerente']);
     $routes->get('tipo-vehiculos', [TipoVehiculos::class, 'index'], ['filter' => 'gerente']);
     $routes->post('tipo-vehiculos', [TipoVehiculos::class, 'index'], ['filter' => 'gerente']);
+    $routes->get('eliminar-tipo-vehiculo/(:num)', [TipoVehiculos::class, 'eliminar/$1'], ['filter' => 'gerente']);
 
     $routes->group('', ['filter' => 'admin'], static function($routes) {
         $routes->get('crear-usuarios', [Usuarios::class, 'index']);
