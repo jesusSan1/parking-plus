@@ -38,8 +38,7 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html "
-                target="_blank">
+            <a class="navbar-brand m-0" href="<?=base_url('dashboard')?>">
                 <img src="assets/img/icon.jpg" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold">Parking Plus</span>
             </a>
@@ -59,7 +58,8 @@
                 </li>
                 <?php if (session('id_rol') == 2): ?>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">
+                    <a class="nav-link <?=current_url() == base_url('configuracion') ? 'active' : ''?>"
+                        href="<?=base_url('configuracion')?>">
 
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -153,7 +153,7 @@
         </div>
     </main>
     <div class="fixed-plugin">
-        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="#">
+        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="<?=base_url('configuracion')?>">
             <i class="fa fa-cog py-2"> </i>
         </a>
     </div>
