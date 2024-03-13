@@ -60,12 +60,21 @@
                 <li class="nav-item">
                     <a class="nav-link <?=current_url() == base_url('configuracion') ? 'active' : ''?>"
                         href="<?=base_url('configuracion')?>">
-
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-settings text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Configuraciones</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?=current_url() == base_url('tipo-vehiculos') ? 'active' : ''?>"
+                        href="<?=base_url('tipo-vehiculos')?>">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-folder-17 text-success text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Tipos de vehiculos</span>
                     </a>
                 </li>
                 <li class="nav-item">
