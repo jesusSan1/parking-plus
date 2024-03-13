@@ -41,6 +41,8 @@ class TipoVehiculos extends BaseController
             $this->tipoVehiculos->insert($data);
             return redirect()->back()->with('success', 'Datos guardados correctamente');
         }
-        return view('tipoVehiculos\index');
+        return view('tipoVehiculos\index', [
+            'tipoVehiculos' => $this->tipoVehiculos->where('id_usuario', session('id'))->findAll(),
+        ]);
     }
 }

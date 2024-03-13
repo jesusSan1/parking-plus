@@ -38,37 +38,41 @@ Tipos de vehiculos
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Author</th>
                                         <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Function</th>
-                                        <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Employed</th>
+                                        <th class="text-secondary opacity-7"></th>
                                         <th class="text-secondary opacity-7"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach ($tipoVehiculos as $vehiculo): ?>
                                     <tr>
                                         <td>
                                             <div class="d-flex px-2 py-1">
 
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                                                    <p class="text-xs text-secondary mb-0"><?=$vehiculo['nombre']?></p>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <p class="text-xs text-secondary mb-0">Organization</p>
-                                        </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                                            <span
+                                                class="text-secondary text-xs font-weight-bold"><?=$vehiculo['fecha_registro']?></span>
                                         </td>
                                         <td class="align-middle">
                                             <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                 data-toggle="tooltip" data-original-title="Edit user">
-                                                Edit
+                                                Editar
+                                            </a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                data-toggle="tooltip" data-original-title="Edit user">
+                                                Eliminar
                                             </a>
                                         </td>
                                     </tr>
+                                    <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>
