@@ -23,7 +23,7 @@ Configuraciones generales
                         <div class="col-md-4 mb-3">
                             <div class="form-group">
                                 <?=form_label('Costo por hora', 'cost', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'cost', 'id' => 'cost', 'class' => session('list.cost') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('time', $setting['costo_general'])])?>
+                                <?=form_input(['type' => 'text', 'name' => 'cost', 'id' => 'cost', 'class' => session('list.cost') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('cost', $setting['costo_general']), 'required' => true])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.cost')?>
                                 </div>
@@ -50,7 +50,7 @@ Configuraciones generales
                         <div class="col-md-4 mb-3">
                             <div class="form-group">
                                 <?=form_label('Tolerancia', 'tolerance', ['class' => 'form-control-label'])?>
-                                <?=form_input(['type' => 'text', 'name' => 'tolerance', 'id' => 'tolerance', 'class' => session('list.tolerance') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('tolerance', $setting['tiempo'])])?>
+                                <?=form_input(['type' => 'text', 'name' => 'tolerance', 'id' => 'tolerance', 'class' => session('list.tolerance') ? 'form-control is-invalid' : 'form-control', 'value' => set_value('tolerance', $setting['tiempo']), 'required' => true])?>
                                 <div class="invalid-feedback">
                                     <?=session('list.tolerance')?>
                                 </div>
