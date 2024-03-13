@@ -51,25 +51,20 @@ Tipos de vehiculos
                                             <div class="d-flex px-2 py-1">
 
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <p class="text-xs text-secondary mb-0"><?=$vehiculo['nombre']?></p>
+                                                    <p class="text-xs text-secondary mb-0"><?=esc($vehiculo['nombre'])?>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="align-middle text-center">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold"><?=$vehiculo['fecha_registro']?></span>
+                                                class="text-secondary text-xs font-weight-bold"><?=esc($vehiculo['fecha_registro'])?></span>
                                         </td>
                                         <td class="align-middle">
-                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                data-toggle="tooltip" data-original-title="Edit user">
-                                                Editar
-                                            </a>
+                                            <?=anchor(base_url('editar-tipo-vehiculo/') . $vehiculo['id'], 'Editar', ['class' => 'text-secondary font-weight-bold text-xs', 'data-toggle' => 'tooltip', 'data-original-title' => 'Editar tipo de vehiculo'])?>
                                         </td>
                                         <td class="align-middle">
-                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                data-toggle="tooltip" data-original-title="Edit user">
-                                                Eliminar
-                                            </a>
+                                            <?=anchor(base_url('eliminar-tipo-vehiculo/') . $vehiculo['id'], 'Eliminar', ['class' => 'text-secondary font-weight-bold text-xs', 'data-toggle' => 'tooltip', 'data-original-title' => 'Eliminar tipo de vehiculo'])?>
                                         </td>
                                     </tr>
                                     <?php endforeach;?>
