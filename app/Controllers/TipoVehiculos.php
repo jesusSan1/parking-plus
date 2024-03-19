@@ -49,4 +49,30 @@ class TipoVehiculos extends BaseController
         $this->tipoVehiculos->where('id', $id)->delete();
         return redirect()->back()->with('success', 'Tipo de vehiculo eliminado correctamente');
     }
+    public function update (int $id){
+        if($this->request->is('post')){
+            $rules = [
+                'type' => [
+                    'label' => 'tipo de vehiculo',
+                    'rules' => 'required|alpha|min_length[3]',
+                    'errors' => [
+                        'required' => 'El {field} debe ser llenado',
+                        'alpha' => 'El {field} no debe tener caracteres especiales o numeros',
+                        'min_length' => 'El {field} debe tener al menos {param} caracteres',
+                    ],
+                ],
+            ];
+            if(!$this->validate($rules)){
+                return redirect()->back()->with('list', $this->validation->getErrors())->withInput();
+            }
+            $data = [
+                'nombre' => $this->security->sanitizeFilename(trim($this->request->getPost('type')))
+            ];
+            $this->tipoVehiculos->where('id', $id)->set($data)->update();
+            return redirect()->back()->with('success', 'Datos actualizados correctamente')->withInput();
+        }
+        return view('tipoVehiculos\editar', [
+            'data' => $this->tipoVehiculos->where('id', $id)->find()
+        ]);
+    }
 }
