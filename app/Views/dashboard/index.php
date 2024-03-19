@@ -427,6 +427,27 @@ Menú principal
                     <h6 class="mb-0">Tipo de vehiculos</h6>
                 </div>
                 <div class="card-body p-3">
+                    <?php if (empty($tipoVehiculos)): ?>
+                    <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">No existen registros</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                            <div class="d-flex align-items-center">
+                                <button
+                                    class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-ban    "></i>
+                                </button>
+                                <div class="d-flex flex-column">
+                                    <h6 class="mb-1 text-dark text-sm">Actualmente no existen registros</h6>
+                                    <span class="text-xs">Registrar un tipo de vehiculo</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
+                                <?=anchor(base_url('tipo-vehiculos'), 'Registrar')?>
+                            </div>
+                        </li>
+                    </ul>
+                    <?php endif;?>
+                    <?php foreach ($tipoVehiculos as $tipoVehiculo): ?>
                     <ul class="list-group">
                         <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                             <div class="d-flex align-items-center">
@@ -434,68 +455,19 @@ Menú principal
                                     <i class="ni ni-tag text-white opacity-10"></i>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <h6 class="mb-1 text-dark text-sm">Devices</h6>
-                                    <span class="text-xs">250 in stock, <span class="font-weight-bold">346+
-                                            sold</span></span>
+                                    <h6 class="mb-1 text-dark text-sm"><?=esc($tipoVehiculo['nombre'])?></h6>
+                                    <span class="text-xs">17 vehiculos vinculados</span>
                                 </div>
                             </div>
                             <div class="d-flex">
-                                <button
-                                    class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                                        class="ni ni-bold-right" aria-hidden="true"></i></button>
-                            </div>
-                        </li>
-                        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                            <div class="d-flex align-items-center">
-                                <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                                    <i class="ni ni-tag text-white opacity-10"></i>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <h6 class="mb-1 text-dark text-sm">Tickets</h6>
-                                    <span class="text-xs">123 closed, <span class="font-weight-bold">15
-                                            open</span></span>
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <button
-                                    class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                                        class="ni ni-bold-right" aria-hidden="true"></i></button>
-                            </div>
-                        </li>
-                        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                            <div class="d-flex align-items-center">
-                                <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                                    <i class="ni ni-tag text-white opacity-10"></i>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <h6 class="mb-1 text-dark text-sm">Error logs</h6>
-                                    <span class="text-xs">1 is active, <span class="font-weight-bold">40
-                                            closed</span></span>
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <button
-                                    class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                                        class="ni ni-bold-right" aria-hidden="true"></i></button>
-                            </div>
-                        </li>
-                        <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
-                            <div class="d-flex align-items-center">
-                                <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                                    <i class="ni ni-tag text-white opacity-10"></i>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <h6 class="mb-1 text-dark text-sm">Happy users</h6>
-                                    <span class="text-xs font-weight-bold">+ 430</span>
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <button
-                                    class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                                        class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                <a href="<?=base_url('editar-tipo-vehiculo/') . $tipoVehiculo['id']?>"
+                                    class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto">
+                                    <i class="ni ni-bold-right" aria-hidden="true"></i>
+                                </a>
                             </div>
                         </li>
                     </ul>
+                    <?php endforeach;?>
                 </div>
             </div>
         </div>
