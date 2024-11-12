@@ -1,4 +1,4 @@
-<?=$this->extend('layouts\dashboard');?>
+<?=$this->extend('layouts/dashboard');?>
 <?=$this->section('titulo');?>
 Menú principal
 <?=$this->endSection();?>

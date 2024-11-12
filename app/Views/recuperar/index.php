@@ -1,4 +1,4 @@
-<?=$this->extend('layouts\login');?>
+<?=$this->extend('layouts/login');?>
 <?=$this->section('titulo');?>
 Recuperación de contraseña
 <?=$this->endSection();?>
