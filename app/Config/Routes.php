@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\AjusteEmpresaController;
 use App\Controllers\Dashboard;
 use App\Controllers\Home;
 use App\Controllers\Recuperar;
@@ -24,3 +25,6 @@ $routes->post('reestablecer', [Reestablecer::class, 'index'], ['filter' => 'toke
 
 $routes->get('dashboard', [Dashboard::class, 'index'], ['filter' => 'auth']);
 $routes->get('salir', [Dashboard::class, 'salir']);
+
+$routes->get('ajuste-empresa', [AjusteEmpresaController::class, 'index'], ['filter' => 'auth']);
+$routes->post('ajuste-empresa', [AjusteEmpresaController::class, 'index'], ['filter' => 'auth']);

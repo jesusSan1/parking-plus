@@ -58,6 +58,18 @@
                             principal</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link <?=basename(uri_string()) == 'ajuste-empresa' ? 'bg-dark rounded active' : ''?>"
+                        href="<?=base_url('ajuste-empresa')?>">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-settings text-primary text-sm opacity-10"></i>
+                        </div>
+                        <span
+                            class="nav-link-text ms-1 <?=basename(uri_string()) == 'ajuste-empresa' ? 'text-white' : ''?>">Ajuste
+                            de empresa</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="sidenav-footer mx-3 ">
