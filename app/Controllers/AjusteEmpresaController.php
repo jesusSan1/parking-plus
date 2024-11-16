@@ -8,15 +8,23 @@ use App\Models\AjustesEmpresa;
 class AjusteEmpresaController extends BaseController
 {
     private $ajusteEmpresa;
+    private $security;
 
     public function __construct()
     {
         $this->ajusteEmpresa = model(AjustesEmpresa::class);
+        $this->security = \Config\Services::security();
     }
 
     public function index()
     {
-        if ($this->request->is('post')) {
+        return view('ajustesEmpresa/index', [
+            'ajustes' => $this->ajusteEmpresa->findAll(),
+        ]);
+    }
+    public function update(int $id = 1)
+    {
+        if ($this->request->is('put')) {
             $rules = [
                 'name' => [
                     'label' => 'nombre',
@@ -28,19 +36,18 @@ class AjusteEmpresaController extends BaseController
                 ],
                 'email' => [
                     'label' => 'correo electronico',
-                    'rules' => 'required|valid_email',
+                    'rules' => 'valid_email|permit_empty',
                     'errors' => [
-                        'required' => 'El {field} debe ser llenado',
                         'valid_email' => 'El {field} debe tener formato de email',
                     ],
                 ],
                 'phone' => [
                     'label' => 'telefono',
-                    'rules' => 'required|numeric|min_length[10]',
+                    'rules' => 'numeric|min_length[10]|permit_empty|max_length[15]',
                     'errors' => [
-                        'required' => 'El {field} debe ser llenado',
                         'numeric' => 'El {field} solamente debe tener numeros',
-                        'min_length' => 'El {field} debe por lo menos tener 10 numeros',
+                        'min_length' => 'El {field} debe por lo menos tener {param} numeros',
+                        'max_length' => 'El {field} no debe tener mas de {param} numeros',
                     ],
                 ],
                 'address' => [
@@ -56,13 +63,18 @@ class AjusteEmpresaController extends BaseController
                 return redirect()->back()->with('list', $this->validation->getErrors())->withInput();
             }
             //Guardar los datos
-            $nombre = $this->request->getPost('name');
-            $email = $this->request->getPost('email');
-            $telefono = $this->request->getPost('phone');
-            $direccion = $this->request->getPost('address');
-
-            dd($nombre, $email, $telefono, $direccion);
+            $data = [
+                'nombre' => $this->security->sanitizeFilename(trim($this->request->getPost('name'))),
+                'email' => $this->security->sanitizeFilename(trim($this->request->getPost('email'))),
+                'telefono' => $this->security->sanitizeFilename(trim($this->request->getPost('phone'))),
+                'direccion' => $this->security->sanitizeFilename(trim($this->request->getPost('address'))),
+            ];
+            $this->ajusteEmpresa->where('id', $id)->set($data)->update();
+            return redirect()->back()->with('success', 'Los datos se han guardado con exito')->withInput();
         }
-        return view('ajustesEmpresa/index');
+        return view('ajustesEmpresa/index', [
+            'ajustes' => $this->ajusteEmpresa->findAll(),
+        ]);
+
     }
 }

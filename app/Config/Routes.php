@@ -27,4 +27,4 @@ $routes->get('dashboard', [Dashboard::class, 'index'], ['filter' => 'auth']);
 $routes->get('salir', [Dashboard::class, 'salir']);
 
 $routes->get('ajuste-empresa', [AjusteEmpresaController::class, 'index'], ['filter' => 'auth']);
-$routes->post('ajuste-empresa', [AjusteEmpresaController::class, 'index'], ['filter' => 'auth']);
+$routes->put('update-ajuste-empresa/(:num)', [AjusteEmpresaController::class, 'update/$1'], ['filter' => 'auth']);
