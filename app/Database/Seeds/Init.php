@@ -12,5 +12,6 @@ class Init extends Seeder
         $this->call('AdminSeeder');
         $this->call('GerenteSeeder');
         $this->call('TipoVehiculosSeeder');
+        $this->call('AjustesEmpresaSeeder');
     }
 }
