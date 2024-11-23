@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\AjusteEmpresaController;
+use App\Controllers\ConfiguracionController;
 use App\Controllers\Dashboard;
 use App\Controllers\Home;
 use App\Controllers\Recuperar;
@@ -28,3 +29,5 @@ $routes->get('salir', [Dashboard::class, 'salir']);
 
 $routes->get('ajuste-empresa', [AjusteEmpresaController::class, 'index'], ['filter' => 'auth']);
 $routes->put('update-ajuste-empresa/(:num)', [AjusteEmpresaController::class, 'update/$1'], ['filter' => 'auth']);
+
+$routes->get('configuracion', [ConfiguracionController::class, 'index'], ['filter' => 'auth']);
