@@ -31,3 +31,4 @@ $routes->get('ajuste-empresa', [AjusteEmpresaController::class, 'index'], ['filt
 $routes->put('update-ajuste-empresa/(:num)', [AjusteEmpresaController::class, 'update/$1'], ['filter' => 'auth']);
 
 $routes->get('configuracion', [ConfiguracionController::class, 'index'], ['filter' => 'auth']);
+$routes->put('update-configuracion/(:num)', [ConfiguracionController::class, 'update/$1'], ['filter' => 'auth']);
