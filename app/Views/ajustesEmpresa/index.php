@@ -3,6 +3,7 @@
 Ajustes de empresa
 <?=$this->endSection();?>
 <?=$this->section('contenido');?>
+<?=link_tag('assets/css/btn-custom.css')?>
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-md-12">
@@ -57,7 +58,7 @@ Ajustes de empresa
                         <div class="col-md-4"></div>
                         <div class="col-md-4 text-center">
                             <div class="form-group">
-                                <?=form_submit('send', 'Guardar los datos', ['class' => 'btn bg-gradient-primary rounded-pill rounded-5 btn-sm shadow-lg'])?>
+                                <?=form_submit('send', 'Guardar los datos', ['class' => 'btn-custom btn bg-gradient-primary rounded-pill rounded-5 btn-sm shadow-lg'])?>
                             </div>
                         </div>
                         <div class="col-md-4"></div>

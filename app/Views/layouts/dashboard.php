@@ -52,7 +52,7 @@
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i
-                                class="ni ni-tv-2 <?= basename(uri_string()) == 'dashboard' ? 'text-light' : 'text-primary' ?> text-sm opacity-10"></i>
+                                class="ni ni-tv-2 <?=basename(uri_string()) == 'dashboard' ? 'text-light' : 'text-primary'?> text-sm opacity-10"></i>
                         </div>
                         <span
                             class="nav-link-text ms-1 <?=basename(uri_string()) == 'dashboard' ? 'text-white' : ''?>">Menú
@@ -65,7 +65,7 @@
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i
-                                class="ni ni-settings <?= basename(uri_string()) == 'ajuste-empresa' ? 'text-light' : 'text-primary' ?> text-sm opacity-10"></i>
+                                class="ni ni-settings <?=basename(uri_string()) == 'ajuste-empresa' ? 'text-light' : 'text-primary'?> text-sm opacity-10"></i>
                         </div>
                         <span
                             class="nav-link-text ms-1 <?=basename(uri_string()) == 'ajuste-empresa' ? 'text-white' : ''?>">Ajuste
@@ -78,10 +78,23 @@
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i
-                                class="ni ni-settings-gear-65 <?= basename(uri_string()) == 'configuracion' ? 'text-light' : 'text-primary' ?> text-sm opacity-10"></i>
+                                class="ni ni-settings-gear-65 <?=basename(uri_string()) == 'configuracion' ? 'text-light' : 'text-primary'?> text-sm opacity-10"></i>
                         </div>
                         <span
                             class="nav-link-text ms-1 <?=basename(uri_string()) == 'configuracion' ? 'text-white' : ''?>">Configuración</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?=basename(uri_string()) == 'perfil' ? 'bg-dark rounded active' : ''?>"
+                        href="<?=base_url('perfil')?>">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i
+                                class="ni ni-single-02 <?=basename(uri_string()) == 'perfil' ? 'text-light' : 'text-primary'?> text-sm opacity-10"></i>
+                        </div>
+                        <span
+                            class="nav-link-text ms-1 <?=basename(uri_string()) == 'perfil' ? 'text-white' : ''?>">Perfil
+                            de usuario</span>
                     </a>
                 </li>
             </ul>
@@ -103,6 +116,18 @@
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group">
+                        </div>
+                    </div>
+                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                        <div class="input-group">
+                            <ul class="navbar-nav justify-content-end">
+                                <li class="nav-item d-flex align-items-center">
+                                    <a href="<?=base_url('perfil')?>" class="nav-link text-white font-weight-bold px-0">
+                                        <i class="ni ni-single-02"></i>
+                                        <span class="d-sm-inline d-none">Perfil de usuario</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <ul class="navbar-nav  justify-content-end">

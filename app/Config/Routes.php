@@ -4,6 +4,7 @@ use App\Controllers\AjusteEmpresaController;
 use App\Controllers\ConfiguracionController;
 use App\Controllers\Dashboard;
 use App\Controllers\Home;
+use App\Controllers\PerfilController;
 use App\Controllers\Recuperar;
 use App\Controllers\Reestablecer;
 use App\Controllers\Verificar;
@@ -32,3 +33,6 @@ $routes->put('update-ajuste-empresa/(:num)', [AjusteEmpresaController::class, 'u
 
 $routes->get('configuracion', [ConfiguracionController::class, 'index'], ['filter' => 'auth']);
 $routes->put('update-configuracion/(:num)', [ConfiguracionController::class, 'update/$1'], ['filter' => 'auth']);
+
+$routes->get('perfil', [PerfilController::class, 'index'], ['filter' => 'auth']);
+$routes->put('update-profile/(:num)', [PerfilController::class, 'update/$1'], ['filter' => 'auth']);

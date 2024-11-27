@@ -1,0 +1,10 @@
+.btn-custom {
+    transition: transform 0.4s, font-size 0.4s;
+    /* Agregamos transición para el tamaño de fuente */
+}
+
+.btn-custom:hover {
+    transform: scale(1.2);
+    font-weight: bold;
+    font-size: 14px;
+}
