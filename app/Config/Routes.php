@@ -25,14 +25,18 @@ $routes->post('verificar', [Verificar::class, 'index'], ['filter' => 'token']);
 $routes->get('reestablecer', [Reestablecer::class, 'index'], ['filter' => 'token']);
 $routes->post('reestablecer', [Reestablecer::class, 'index'], ['filter' => 'token']);
 
-$routes->get('dashboard', [Dashboard::class, 'index'], ['filter' => 'auth']);
 $routes->get('salir', [Dashboard::class, 'salir']);
 
-$routes->get('ajuste-empresa', [AjusteEmpresaController::class, 'index'], ['filter' => 'auth']);
-$routes->put('update-ajuste-empresa/(:num)', [AjusteEmpresaController::class, 'update/$1'], ['filter' => 'auth']);
+$routes->group('', ['filter' => 'auth'], static function ($routes) {
+    $routes->get('dashboard', [Dashboard::class, 'index']);
 
-$routes->get('configuracion', [ConfiguracionController::class, 'index'], ['filter' => 'auth']);
-$routes->put('update-configuracion/(:num)', [ConfiguracionController::class, 'update/$1'], ['filter' => 'auth']);
+    $routes->get('ajuste-empresa', [AjusteEmpresaController::class, 'index']);
+    $routes->put('update-ajuste-empresa/(:num)', [AjusteEmpresaController::class, 'update/$1']);
 
-$routes->get('perfil', [PerfilController::class, 'index'], ['filter' => 'auth']);
-$routes->put('update-profile/(:num)', [PerfilController::class, 'update/$1'], ['filter' => 'auth']);
+    $routes->get('configuracion', [ConfiguracionController::class, 'index']);
+    $routes->put('update-configuracion/(:num)', [ConfiguracionController::class, 'update/$1']);
+
+    $routes->get('perfil', [PerfilController::class, 'index']);
+    $routes->put('update-profile/(:num)', [PerfilController::class, 'update/$1']);
+
+});
