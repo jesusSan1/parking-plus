@@ -44,7 +44,7 @@ $ cd ../path/to/the/file
 $ composer install
 $ cp env .env
 $ php spark migrate
-$ php spark db:seed 
+$ php spark db:seed Init
 $ php spark serve
 ```
 Información adicional:  
@@ -95,6 +95,9 @@ Para ingresar al sistema, existen dos usuarios, admin y test.
 * Usuario gerente test:
   * usuario: test
   * contraseña: Test123!  
+  
+Las tareas del proyecto las encuentras en el siguiente enlace:  
+[Tareas en Trello](https://trello.com/invite/b/650101176079db5c5225a02b/ATTIbcf1d560bfacbf4db739598b9ba9ba044240A742/sprint-backlog)
   
 ## Colaboración
 Estamos emocionados de que estés considerando contribuir.
